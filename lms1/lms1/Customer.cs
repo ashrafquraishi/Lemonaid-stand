@@ -28,6 +28,56 @@ namespace lms1
             SetHighestPriceToPay();
             preferedIceCubeCount = random.Next(minIceCubeCount, maxIceCubeCount);
         }
+        private string TasteProfile
+        {
+            get { return Recipe.TasteProfiles[tasteProfile]; }
+        }
 
+
+        private void SetTasteProfile()
+        {
+            tasteProfile = random.Next(Recipe.TasteProfiles.Length);
+        }
+        private void SetHighestPriceToPay()
+        {
+            bool increaseHighestPriceToPay;
+
+            increaseHighestPriceToPay = random.Next(-1, 10) < 0 ? false : true;
+
+            if (increaseHighestPriceToPay)
+            {
+                double increase = random.Next(10, 25) / 10;
+                highestPriceToPay = Store.BaseCupCost * increase;
+            }
+            else
+            {
+                highestPriceToPay = Store.BaseCupCost;
+            }
+        }
+
+        private void SetWorstWeatherToBuy()
+        {
+            worstWeatherConditionsToBuy = random.Next(2, weather.Conditions.Count);
+        }
+        public bool DoesPurchase(weather weather, Recipe recipe)
+        {
+            if (weather.ConditionIndex <= worstWeatherConditionsToBuy)
+            {
+                if (recipe.TasteProfile == Recipe.TasteProfiles[tasteProfile] || recipe.TasteProfile == "balanced")
+                {
+                    if (((recipe.IceCubeCount >= preferedIceCubeCount - 1 && recipe.IceCubeCount <= preferedIceCubeCount + 1) || random.Next(0, 1) == 1) && recipe.SellPrice <= highestPriceToPay)
+                    {
+                        return true;
+
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        
+
+       
     }
 }

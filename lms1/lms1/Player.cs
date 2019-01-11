@@ -5,7 +5,7 @@ namespace lms1
 {
     abstract public class Player
     {
-        static double initialBalance = 20;
+        static double initialBalance = 100;
 
         double balance;
         string name;

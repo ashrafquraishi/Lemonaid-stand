@@ -55,18 +55,6 @@ namespace lms1
             Shopping.DisplayFinalScores(players, finalScores);
 
         }
-
-        private void GetFinalScores()
-        {
-            finalScores = new Dictionary<int, double>();
-            for (int i = 0; i < players.Count; i++)
-            {
-                finalScores.Add(i, players[i].Balance);
-
-            }
-        }
-
-
         private void SendPlayersToStore()
         {
             foreach (Player player in players)
@@ -93,6 +81,18 @@ namespace lms1
                 players[i].SetPlayerName($"Player {i + 1}");
             }
         }
+        private void GetFinalScores()
+        {
+            finalScores = new Dictionary<int, double>();
+            for (int i = 0; i < players.Count; i++)
+            {
+                finalScores.Add(i, players[i].Balance);
+
+            }
+        }
+
+
+      
 
     }
 }
