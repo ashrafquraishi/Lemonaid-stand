@@ -32,5 +32,10 @@ namespace lms1
         {
             throw new NotImplementedException();
         }
+
+        internal static void DisplayPlayerDayResults(Player player, object dayNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
