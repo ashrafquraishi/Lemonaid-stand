@@ -1,12 +1,11 @@
 ﻿namespace lms1
 {
-    internal class Human : Player
+    class Human : Player
     {
-        private Store store;
-
-        public Human(Store store)
+        public Human(Store store) : base(store)
         {
-            this.store = store;
+
         }
     }
+
 }

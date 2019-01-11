@@ -28,16 +28,6 @@ namespace lms1
 
         }
 
-
-
-
-
-
-
-
-
-
-
         public void RunGame()
         {
 
@@ -68,17 +58,41 @@ namespace lms1
 
         private void GetFinalScores()
         {
-            throw new NotImplementedException();
+            finalScores = new Dictionary<int, double>();
+            for (int i = 0; i < players.Count; i++)
+            {
+                finalScores.Add(i, players[i].Balance);
+
+            }
         }
+
 
         private void SendPlayersToStore()
         {
-            throw new NotImplementedException();
+            foreach (Player player in players)
+            {
+                player.GoShopping(store);
+            }
         }
+
 
         private void SetupPlayers()
         {
-            throw new NotImplementedException();
+            SetupHumanPlayers();
         }
+
+        private void SetupHumanPlayers()
+        {
+            int playerCount;
+
+            playerCount = int.Parse(Shopping.GetInput("select number of players?", "integer greater than 0"));
+
+            for (int i = 0; i < playerCount; i++)
+            {
+                players.Add(new Human(store));
+                players[i].SetPlayerName($"Player {i + 1}");
+            }
+        }
+
     }
 }
