@@ -23,3 +23,14 @@ namespace lms1
             products.Add(new Product("ice cube", iceCubePrice, "each", "cup"));
             products.Add(new Product("cup", cupPrice, "each", "cup"));
         }
+        public static double BaseCupCost
+        {
+            get { return lemonPrice * 2 + sugarPrice + iceCubePrice * 5 + cupPrice; }
+        }
+
+        public void DisplayProducts()
+        {
+            Shopping.DisplayStoreProducts(this);
+        }
+    }
+}

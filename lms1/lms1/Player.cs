@@ -80,7 +80,45 @@ namespace lms1
             return inventory[item];
         }
 
-        
+        public void DisplayBalance()
+        {
+            Shopping.DisplayBalance(this);
+        }
+
+        public void GoShopping(Store store)
+        {
+            if (Shopping.GetInput($"{name} would you like to visit the store for supplies? <yes/no>", "yes/no") == "yes")
+            {
+                Shopping.GoShopping(this, store);
+            }
+        }
+
+        private bool IsSufficentInventoryPitcher(Recipe recipe)
+        {
+            for (int i = 0; i < recipe.Pitcher.Count; i++)
+            {
+                if (recipe.Pitcher[i].Measurement > inventory[recipe.Pitcher[i].Name])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool Pitcher(Recipe recipe)
+        {
+            if (IsSufficentInventoryPitcher(recipe))
+            {
+                for (int i = 0; i < recipe.Pitcher.Count; i++)
+                {
+                    UseInventory(recipe.Pitcher[i].Name, recipe.Pitcher[i].Measurement);
+                }
+
+                return true;
+            }
+
+            return false;
+        }
 
         private void UseInventory(object name, object measurement)
         {

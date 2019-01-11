@@ -22,5 +22,15 @@ namespace lms1
         {
             throw new NotImplementedException();
         }
+
+        internal static void DisplayStoreProducts(Store store)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void SetRecipe(Recipe recipe, string playerName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
