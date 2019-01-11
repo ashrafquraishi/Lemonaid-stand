@@ -13,13 +13,13 @@ namespace lms1
         int minIceCubeCount = 0;
 
         Random random;
-        weather forecast;
+        Weather forecast;
         int tasteProfile;
         int preferedIceCubeCount;
         int worstWeatherConditionsToBuy;
         double highestPriceToPay;
 
-        public Customer(Random random, weather forecast)
+        public Customer(Random random, Weather forecast)
         {
             this.random = random;
             this.forecast = forecast;
@@ -57,9 +57,9 @@ namespace lms1
 
         private void SetWorstWeatherToBuy()
         {
-            worstWeatherConditionsToBuy = random.Next(2, weather.Conditions.Count);
+            worstWeatherConditionsToBuy = random.Next(2, Weather.Conditions.Count);
         }
-        public bool DoesPurchase(weather weather, Recipe recipe)
+        public bool DoesPurchase(Weather weather, Recipe recipe)
         {
             if (weather.ConditionIndex <= worstWeatherConditionsToBuy)
             {

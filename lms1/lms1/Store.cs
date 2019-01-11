@@ -5,10 +5,10 @@ namespace lms1
     public class Store
     {
         List<Product> products;
-        static double lemonPrice = 0.50;
-        static double sugarPrice = 0.30;
-        static double iceCubePrice = 0.10;
-        static double cupPrice = 0.90;
+        static double lemonPrice = 0.10;
+        static double sugarPrice = 0.08;
+        static double iceCubePrice = 0.01;
+        static double cupPrice = 0.15;
 
         public List<Product> Products
         {

@@ -29,7 +29,7 @@ namespace lms1
                     }
                 }
             }
-            public static void DisplayForecast(List<weather> Forecast)
+            public static void DisplayForecast(List<Weather> Forecast)
             {
                 WriteLine($"{Forecast.Count} Day Forecast");
                 WriteLine("- - - - - - - - - - - - -\n");

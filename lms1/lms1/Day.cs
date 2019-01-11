@@ -10,14 +10,14 @@ namespace lms1
     {
         static int DaysToforecastWeather = 7;
 
-        List<weather> forecast;
+        List<Weather> forecast;
         Random random;
         List<Recipe> recipes;
         List<Player> players;
         List<Customer> customers;
         int dayNumber;
 
-        public List<weather> Forecast
+        public List<Weather> Forecast
         {
             get { return forecast; }
             set { forecast = value; }
@@ -32,7 +32,7 @@ namespace lms1
             {
                 if (Forecast.Count < DaysToforecastWeather)
                 {
-                    Forecast.Add(new weather(random));
+                    Forecast.Add(new Weather(random));
                 }
                 else
                 {
@@ -54,7 +54,7 @@ namespace lms1
         public Day(Random random, List<Player> players, int dayNumber)
         {
             this.random = random;
-            forecast = new List<weather>();
+            forecast = new List<Weather>();
             CreateForecast();
             recipes = new List<Recipe>();
             customers = new List<Customer>();
@@ -63,10 +63,10 @@ namespace lms1
             this.dayNumber = dayNumber;
         }
 
-        public Day(Random random, List<Player> players, List<weather> previousforecast, int dayNumber)
+        public Day(Random random, List<Player> players, List<Weather> previousforecast, int dayNumber)
         {
             this.random = random;
-            Forecast = new List<weather>();
+            Forecast = new List<Weather>();
             Forecast.AddRange(previousforecast);
             Forecast.RemoveAt(0);
             Updateforecast();
@@ -168,7 +168,7 @@ namespace lms1
                     baseCustomerCount = 39;
                     break;
             }
-            return Convert.ToInt16(Convert.ToDouble(baseCustomerCount) * (Convert.ToDouble(Forecast[0].HighTemp) / Convert.ToDouble(weather.MaxHighTemp)) / Convert.ToDouble((Forecast[0].ConditionIndex + 1)));
+            return Convert.ToInt16(Convert.ToDouble(baseCustomerCount) * (Convert.ToDouble(Forecast[0].HighTemp) / Convert.ToDouble(Weather.MaxHighTemp)) / Convert.ToDouble((Forecast[0].ConditionIndex + 1)));
         }
         public void SetPlayerRecipes(List<Product> products)
         {

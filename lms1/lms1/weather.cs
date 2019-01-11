@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace lms1
 {
-    public class weather
+    public class Weather
     {
         Random random;
         int highTemp;
@@ -18,7 +18,7 @@ namespace lms1
         static int minHighTemp = 45;
         static int maxHighTemp = 110;
 
-        public weather(Random random)
+        public Weather(Random random)
         {
             this.random = random;
             conditions = new List<string>();
@@ -100,12 +100,6 @@ namespace lms1
         {
             Condition = conditions[indexCondition];
         }
-
-
-
-
-
-
 
         public void ChangeForecast()
         {

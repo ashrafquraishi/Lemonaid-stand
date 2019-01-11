@@ -57,7 +57,7 @@
     <Compile Include="recipes.cs" />
     <Compile Include="Shopping.cs" />
     <Compile Include="Store.cs" />
-    <Compile Include="weather.cs" />
+    <Compile Include="Weather.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
